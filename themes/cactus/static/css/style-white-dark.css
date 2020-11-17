@@ -966,7 +966,7 @@ body {
 #footer-post #nav-footer ul li {
   display: inline-table;
   padding: 10px;
-  width: 20%;
+  width: 15%;
   vertical-align: middle;
 }
 #footer-post #actions-footer {
@@ -1832,7 +1832,7 @@ body.dark{
 
 #footer-post #nav-footer .theme-toggle {
   color: #2bbc8a;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 #header-post #nav ul #logo-item {
@@ -1853,3 +1853,53 @@ article .content img, article .content video {
 .dark article .content img, .dark article .content video {
   box-shadow: 0px 0px 0px;
  }
+
+@media (max-width: 400px) and (min-width: 365px) {
+    #header #title {
+      min-height: 40px;
+    }
+
+    #title h1 {
+      font-size: 2.0rem;
+      line-height: 1.25;
+    }
+
+    #header #logo {
+      margin-right: 10px;
+      width: 40px;
+      height: 40px;
+      background-size: 40px 40px;
+    }
+
+    #footer-post #nav-footer ul li {
+      display: inline-table;
+      padding: 8px;
+      width: 15%;
+      vertical-align: middle;
+    }
+}
+
+@media (max-width: 365px) {
+    #header #title {
+      min-height: 35px;
+    }
+
+    #title h1 {
+      font-size: 1.7rem;
+      line-height: 1.3;
+    }
+
+    #header #logo {
+      margin-right: 8px;
+      width: 35px;
+      height: 35px;
+      background-size: 35px 35px;
+    }
+
+    #footer-post #nav-footer ul li {
+      display: inline-table;
+      padding: 8px;
+      width: 15%;
+      vertical-align: middle;
+    }
+}
