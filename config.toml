@@ -1,0 +1,59 @@
+baseURL = "https://the-hyperbolic.com"
+languageCode = "en-us"
+title = "the hyperbolic"
+theme = "cactus"
+summaryLength = 40
+copyright = "Oriol Castejón"
+
+[[menu.main]]
+name = "home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "blog"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "tags"
+url = "/tags"
+weight = 3
+
+[[menu.main]]
+name = "about"
+url = "/about"
+weight = 4
+
+[markup]
+  [markup.tableOfContents]
+    endLevel = 4
+    ordered = false
+    startLevel = 2
+
+[params]
+
+colortheme = "white-dark" # white-dark, light, classic, white, dark
+rss = true
+
+mainSection = "latest posts"
+showAllPostsOnHomePage = false
+description = "Welcome to the hyperbolic. Here you will find my adventures in reverse-engineering, hacking, and anything where my curiosity takes me. Have fun!"
+
+# dateFormat = "January 2, 2006"
+
+[[params.social]]
+  name = "twitter"
+  link = "https://twitter.com/foolisses"
+
+[[params.social]]
+  name = "github"
+  link = "https://github.com/ocastejon"
+
+[[params.social]]
+  name = "linkedin"
+  link = "https://linkedin.com/in/ocastejon"
+
+# [[params.social]]
+#   name = "htb"
+#   link = "https://app.hackthebox.eu/profile/8892"

@@ -1,0 +1,67 @@
+<div id="header-post">
+  <!-- <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a> -->
+<span id="menu">
+<!--    <span id="nav">
+      <ul>
+        <li id="logo-item">
+          {{ if (isset .Site.Params "gravatar") }}
+            <div id="logo" style="background-image: url(https://www.gravatar.com/avatar/{{ md5 .Site.Params.gravatar }}?s=100&d=identicon)"></div>
+          {{ else if (isset .Site.Params "logo") }}
+            <div id="logo" style="background-image: url({{ .Site.Params.logo | absURL }})"></div>
+          {{ else }}
+            <div id="logo" style="background-image: url({{ "images/logo.png" | absURL }})"></div>
+          {{ end}}
+        </li>
+        {{ range .Site.Menus.main }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+        {{ if (eq .Site.Params.colortheme "white-dark") }}
+          <li><span class="theme-toggle unselectable"><i class="fas fa-adjust fa-md" aria-hidden="true"></i></span></li>
+        {{ end }}
+      </ul>
+    </span> -->
+    <br/>
+    <div id="actions">
+      <ul>
+        {{ if .Prev }}
+        <li>
+          <a class="icon" href=" {{ .Prev.Permalink }}">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        {{ end }}
+        {{ if .Next }}
+        <li>
+          <a class="icon" href="{{ .Next.Permalink }}">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        {{ end }}
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+        <span id="i-prev" class="info" style="display:none;">Previous post</span>
+        <span id="i-next" class="info" style="display:none;">Next post</span>
+        <span id="i-top" class="info" style="display:none;">Back to top</span>
+        <span id="i-share" class="info" style="display:none;">Share post</span>
+      </ul>
+    </div>
+    <!-- <br/> -->
+    <div id="share" style="display: none">
+      {{ .Scratch.Set "icon_class_name" ""}}
+      {{ partial "share.html" . }}
+    </div>
+    <div id="toc">
+      {{ .TableOfContents }}
+    </div>
+  </span>
+</div>
