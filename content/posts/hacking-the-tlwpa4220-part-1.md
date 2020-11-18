@@ -1,6 +1,6 @@
 ---
 title: "Hacking the TL-WPA4220, Part 1: Laying the Ground"
-date: 2020-11-14T22:46:04+01:00
+date: 2020-11-18T18:00:10+01:00
 tags: [embedded, TP-Link]
 ---
 

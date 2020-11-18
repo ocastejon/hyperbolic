@@ -1,10 +1,10 @@
 ---
 title: "Vulnerabilities in TP-Link's TL-WPA4220"
-date: 2020-11-12T22:25:03+01:00
+date: 2020-11-18T18:00:00+01:00
 tags: [CVE-2020-24297, CVE-2020-28005, embedded, TP-Link]
 ---
 
-In this post, I'm going to describe some vulnerabilities that I found a while ago, affecting the HTTP server of TP-Link's Powerline Adapter/WiFi Extender TL-WPA4220 (hardware versions 2, 3, and 4). These flaws are **two command injection vulnerabilities** that can grant an attacker root access to the device (CVE-2020-24297), as well as **a buffer overflow vulnerability** that can be used to crash the `http` service (CVE-2020-28005).
+In this post, I'm going to describe some vulnerabilities that I found a while ago, affecting the HTTP server of TP-Link's Powerline Adapter/WiFi Extender TL-WPA4220 (hardware versions 2, 3, and 4). These flaws are **two command injection vulnerabilities** that can grant an attacker root access to the device (CVE-2020-24297), as well as **a stack-based buffer overflow vulnerability** that can be used to crash the `http` service (CVE-2020-28005).
 
 These flaws can be exploited by a remote authenticated attacker that is connected to the LAN, or that has access to the web management interface in the uncommon situation that it is exposed to the internet. As the default password for the web interface is easily guessable (yes, it's `admin`), in most cases this means that anyone connected to the LAN can take advantage of them.
 
@@ -19,7 +19,7 @@ For a thorough explanation of how I found these vulnerabilities, see the *Hackin
 
 ## CVE-2020-24297
 
-The command injection vulnerabilities exist in the endpoint **`/admin/powerline`**, when the `form` parameter is set to `plc_add` or `plc_device`, and malicious POST data is passed. The existing flaw is caused by the insufficient validation or sanitization of the POST parameters **`devicePwd`** and **`key`** respectively.
+The command injection vulnerabilities exist in the endpoint **`/admin/powerline`**, when the `form` parameter is set to `plc_add` or `plc_device`, and malicious POST data is passed. The existing flaw is caused by the insufficient validation or sanitization of the POST parameters **`devicePwd`** and **`key`** respectively. See CVE page [here](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-24297).
 
 Since the HTTP server is running as `root`, these vulnerabilities can be used to take full control of the device.
 
@@ -27,7 +27,7 @@ A PoC for this vulnerability can be found [here](https://github.com/ocastejon/ex
 
 ## CVE-2020-28005
 
-The buffer overflow exists in the endpoint **`/admin/syslog`**, when the `form` parameter is set to `filter`, and malicious POST data is passed. The existing flaw is caused by the unexisting validation of the length of the POST parameter **`type`**.
+The stack-based buffer overflow exists in the endpoint **`/admin/syslog`**, when the `form` parameter is set to `filter`, and malicious POST data is passed. The existing flaw is caused by the unexisting validation of the length of the POST parameter **`type`**. See CVE page [here](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-28005).
 
 Since partial Address Space Layout Randomization (ASLR) is enabled on the device, this vulnerability alone can't be used to achieve remote code execution. However, it can be used to crash the HTTP service.
 
@@ -53,3 +53,4 @@ Of course, to be exploitable, these devices need to have a vulnerable firmware v
 - **2020/10/27** - Firmware upgrade shared by the vendor
 - **2020/10/29** - Confirmation to the vendor that the reported vulnerabilities had been fixed in the upgraded firmware
 - **2020/11/12** - Firmware upgrade published
+- **2020/11/18** - Publication of CVE-2020-24297 and CVE-2020-28005 by MITRE

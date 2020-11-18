@@ -1,6 +1,6 @@
 ---
 title: "Hacking the TL-WPA4220, Part 2: The Command Injections"
-date: 2020-11-17T22:46:07+01:00
+date: 2020-11-18T18:00:20+01:00
 tags: [CVE-2020-24297, embedded, TP-Link]
 ---
 
