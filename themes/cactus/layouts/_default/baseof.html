@@ -20,4 +20,25 @@
 {{ if (eq .Site.Params.colortheme "white-dark") }}
   <script src={{ "js/theme.js" | relURL }}></script>
 {{ end }}
+{{ $mathjax := false }}
+{{ if isset .Params "mathjax" }}
+  {{ $mathjax = .Params.mathjax }}
+{{ else if isset .Site.Params "mathjax" }}
+  {{ $mathjax = .Site.Params.mathjax }}
+{{ end }}
+{{ if $mathjax }}
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+{{ end }}
 </html>
