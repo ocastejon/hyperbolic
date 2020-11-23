@@ -1,5 +1,5 @@
 ---
-title: "Vulnerabilities in TP-Link's TL-WPA4220"
+title: "CVE-2020-24297 and CVE-2020-28005: Vulnerabilities in TP-Link's TL-WPA4220"
 date: 2020-11-18T18:00:00+01:00
 tags: [CVE-2020-24297, CVE-2020-28005, embedded, TP-Link]
 ---
@@ -13,7 +13,7 @@ After disclosing these flaws to TP-Link, they have been patched in the latest fi
 For a thorough explanation of how I found these vulnerabilities, see the *Hacking the TL-WPA4220* series:
 - [Hacking the TL-WPA4220, Part 1: Laying the Ground](/posts/hacking-the-tlwpa4220-part-1/)
 - [Hacking the TL-WPA4220, Part 2: The Command Injections](/posts/hacking-the-tlwpa4220-part-2/)
-- Hacking the TL-WPA4220, Part 3: Talking to the Server  (*upcoming*)
+- [Hacking the TL-WPA4220, Part 3: Talking to the Server](/posts/hacking-the-tlwpa4220-part-3/)
 - Hacking the TL-WPA4220, Part 4: The Buffer Overflow (*upcoming*)
 
 
