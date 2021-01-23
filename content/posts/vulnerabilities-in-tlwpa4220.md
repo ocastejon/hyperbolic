@@ -8,13 +8,13 @@ In this post, I'm going to describe some vulnerabilities that I found a while ag
 
 These flaws can be exploited by a remote authenticated attacker that is connected to the LAN, or that has access to the web management interface in the uncommon situation that it is exposed to the internet. As the default password for the web interface is easily guessable (yes, it's `admin`), in most cases this means that anyone connected to the LAN can take advantage of them.
 
-After disclosing these flaws to TP-Link, they have been patched in the latest firmware version `TL-WPA4220(EU)_V4_201023`, which corresponds to hardware version 4. For hardware versions 2 and 3 no patch has been published to the moment, so all versions are still vulnerable.
+After disclosing these flaws to TP-Link, they have been patched in the latest firmware version `TL-WPA4220(EU)_V4_201023` (you can get it [here](https://static.tp-link.com/2021/202101/20210113/TL-WPA4220(EU)_V4_201023.zip)), which corresponds to hardware version 4. For hardware versions 2 and 3 no patch has been published to the moment, so all versions are still vulnerable.
 
 For a thorough explanation of how I found these vulnerabilities, see the *Hacking the TL-WPA4220* series:
 - [Hacking the TL-WPA4220, Part 1: Laying the Ground](/posts/hacking-the-tlwpa4220-part-1/)
 - [Hacking the TL-WPA4220, Part 2: The Command Injections](/posts/hacking-the-tlwpa4220-part-2/)
 - [Hacking the TL-WPA4220, Part 3: Talking to the Server](/posts/hacking-the-tlwpa4220-part-3/)
-- Hacking the TL-WPA4220, Part 4: The Buffer Overflow (*upcoming*)
+- [Hacking the TL-WPA4220, Part 4: The Buffer Overflow](/posts/hacking-the-tlwpa4220-part-4/)
 
 
 ## CVE-2020-24297
@@ -54,3 +54,7 @@ Of course, to be exploitable, these devices need to have a vulnerable firmware v
 - **2020/10/29** - Confirmation to the vendor that the reported vulnerabilities had been fixed in the upgraded firmware
 - **2020/11/12** - Firmware upgrade published
 - **2020/11/18** - Publication of CVE-2020-24297 and CVE-2020-28005 by MITRE
+
+*EDIT*:
+- **2020/12/18** - At some point before this date, TP-Link removed the firmware upgrade from their site (for reasons unknown to me). I asked them to put the upgrade back as soon as possible
+- **2021/01/13** - Firmware upgrade is republished
