@@ -151,7 +151,7 @@ This object is defined in the file `js/libs/tpEncrypt.js`. We will focus on the 
 
     ![The method getSignature](/img/hacking-the-tlwpa4220-part-3/getSignature.png "The method getSignature")
 
-    Note that the value of the string `s` differs if the `isLogin` parameter is set to `true` or `false`. In the former case, the unencrypted signature will contain the AES key string (that contains both the key and IV), the generated hash, and the sequence number. In the latter case, on the contrary, the AES key string won't be present.
+    Note that the value of the string `s` differs if the `isLogin` parameter is set to `true` or `false`. In the former case, the unencrypted signature will contain the AES key string (that contains both the key and IV), the generated hash, and the value `seq` (which, from the call to `getSignature` above, we can see that it is the sequence number plus the length of the data). In the latter case, on the contrary, the AES key string won't be present.
 
   - **The method `dataDecrypt`**. This is more simple since it simply decrypts the input data with the AES algorithm (in CBC mode):
 
