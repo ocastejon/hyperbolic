@@ -5,4 +5,4 @@ type: "about"
 layout: "about"
 ---
 
-security engineer | oscp | tireless learner
+security consultant | oscp | tireless learner
